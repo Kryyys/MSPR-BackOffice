@@ -1,5 +1,6 @@
 import Home from "./views/home/Home";
 import Login from "./views/login/Login";
+import List from "./views/list/List";
 import {
   BrowserRouter,
   Routes,
@@ -14,6 +15,9 @@ function App() {
         <Route path="/">
           <Route index element={<Home/>}/>
           <Route path="login" element={<Login/>}/>
+          <Route path="users">
+            <Route index element={<List/>}/>
+          </Route>
         </Route>
       </Routes>
       </BrowserRouter>
