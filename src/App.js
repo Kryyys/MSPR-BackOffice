@@ -1,6 +1,7 @@
 import Home from "./views/home/Home";
 import Login from "./views/login/Login";
 import List from "./views/list/List";
+import Offers from "./views/offers/Offers";
 import {
   BrowserRouter,
   Routes,
@@ -15,6 +16,7 @@ function App() {
         <Route path="/">
           <Route index element={<Home/>}/>
           <Route path="login" element={<Login/>}/>
+          <Route path="offers" element={<Offers/>}/>
           <Route path="users">
             <Route index element={<List/>}/>
           </Route>
