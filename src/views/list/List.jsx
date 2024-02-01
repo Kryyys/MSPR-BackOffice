@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import "./list.scss"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
@@ -67,7 +68,9 @@ const List = () => {
                 <td>{user.email}</td>
                 <td>{user.idRole}</td>
                 <td>
-                    <span><VisibilityIcon/></span>
+                    <Link to={`/informations/${user.idUser}`}>
+                        <span><VisibilityIcon/></span>
+                    </Link>
                     <span><ModeEditIcon/></span>
                     <span><DeleteIcon onClick={() => handleDeleteUser(user.idUser)}/></span>
                 </td>

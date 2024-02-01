@@ -2,6 +2,7 @@ import Home from "./views/home/Home";
 import Login from "./views/login/Login";
 import List from "./views/list/List";
 import Offers from "./views/offers/Offers";
+import SeeUser from "./views/seeUser/SeeUser";
 import {
   BrowserRouter,
   Routes,
@@ -20,6 +21,7 @@ function App() {
           <Route path="users">
             <Route index element={<List/>}/>
           </Route>
+          <Route path="informations/:idUser" element={<SeeUser/>}/>
         </Route>
       </Routes>
       </BrowserRouter>
