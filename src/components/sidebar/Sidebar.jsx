@@ -6,6 +6,7 @@ import AnnouncementIcon from '@mui/icons-material/Announcement';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
@@ -18,16 +19,23 @@ const Sidebar = () => {
                 <ul>
                     <li>
                         <HomeIcon className="icon" />
-                        <span>Accueil</span>
+                        <span><Link to="http://localhost:3000/" className="linkStyle">Accueil</Link></span>
                     </li>
                     <p className="title">UTILISATEURS</p>
                     <li>
+                        
                         <PersonIcon className="icon" />
-                        <span>Utilisateurs</span>
+                        <span><Link to="http://localhost:3000/users" className="linkStyle">Utilisateurs</Link></span>
                     </li>
                     <li>
                         <AnnouncementIcon className="icon" />
-                        <span>Annonces</span>
+                        <span><Link to="http://localhost:3000/offers" className="linkStyle">Annonces</Link></span>
+                    </li>
+                    <p className="title">BOTANISTES</p>
+                    <li>
+                        
+                        <PersonIcon className="icon" />
+                        <span>Demandes</span>
                     </li>
                     <p className="title">PERSONNEL</p>
                     <li>

@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar"
 import "./seeUser.scss"
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import profil from "../../assets/profil.png";
 
 const SeeUser = () => {
     // Récupérer l'id de l'utilisateur depuis les paramètres de l'URL
@@ -51,14 +52,46 @@ const SeeUser = () => {
             <div className="seeUserContainer">
                 <Navbar />
 
-                <h1>Informations de l'utilisateur {idUser}</h1>
+                <h1>Informations de l'utilisateur {userData[0].lastName} {userData[0].firstName}</h1>
 
-                    <>
-                        <p>Nom: {userData[0].lastName}</p>
-                        <p>Prénom: {userData[0].firstName}</p>
-                        <p>Pseudo: {userData[0].usersName}</p>
-                        <p>Email: {userData[0].email}</p>
-                    </>
+                <span className="avatarUser"><img src={profil} alt="Avatar de l'utilisateur" /></span>
+                    
+                <table className="userTable">
+                    <tbody>
+                        <tr>
+                            <td className="bold">Nom</td>
+                            <td>{userData[0].lastName}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Prénom</td>
+                            <td>{userData[0].firstName}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Pseudo</td>
+                            <td>{userData[0].usersName}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Email</td>
+                            <td>{userData[0].email}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Rôle</td>
+                            <td>{userData[0].name}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Ville</td>
+                            <td>{userData[0].city}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Création du compte</td>
+                            <td>{userData[0].created_at}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Bio</td>
+                            <td>{userData[0].bio}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 
             </div>
         </div>

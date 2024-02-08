@@ -6,6 +6,7 @@ import Navbar from "../../components/navbar/Navbar"
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import profil from '../../assets/profil.png';
 
 const List = () => {
 
@@ -48,7 +49,7 @@ const List = () => {
             <div className="listContainer">
                 <Navbar />
                 <h1>Liste des utilisateurs</h1>
-                <table>
+          <table>
           <thead>
             <tr>
               <th>Nom</th>
@@ -62,17 +63,20 @@ const List = () => {
           <tbody>
             {users.map(user => (
               <tr key={user.idUser}>
-                <td>{user.lastName}</td>
+                <td className="lastNameImg">
+                  <img src={profil} alt="Photo de profil" />   
+                  {user.lastName}
+                </td>
                 <td>{user.firstName}</td>
                 <td>{user.usersName}</td>
                 <td>{user.email}</td>
                 <td>{user.idRole}</td>
-                <td>
+                <td className="actionButton">
                     <Link to={`/informations/${user.idUser}`}>
-                        <span><VisibilityIcon/></span>
+                        <span className="UserButton"><VisibilityIcon/></span>
                     </Link>
                     <span><ModeEditIcon/></span>
-                    <span><DeleteIcon onClick={() => handleDeleteUser(user.idUser)}/></span>
+                    <span className="deleteUserButton"><DeleteIcon onClick={() => handleDeleteUser(user.idUser)}/></span>
                 </td>
               </tr>
             ))}

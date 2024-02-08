@@ -1,4 +1,4 @@
-.offers{
+.offers {
     display: flex;
 
     .offersContainer {
@@ -7,6 +7,71 @@
         h1 {
             text-align: center;
             color: rgb(6, 77, 6);
+            margin-bottom: 50px;
+        }
+
+        .advertisement-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+
+
+            .advertisement-bubble {
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                width: 45%;
+                border: solid 1px green;
+                border-radius: 25px;
+            }
+
+            .profile-image {
+                width: 30%;
+                height: 100%;
+                border-radius: 25px 0 0 25px;
+                margin-right: 20px;
+            }
+
+            .advertisement-info {
+                flex: 1;
+
+                h3 {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    text-decoration: underline;
+                }
+
+            }
+
+            .offersButton {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+
+                .seeOffers {
+                    color: white;
+                    background-color: green;
+                    border: none;
+                    border-radius: 25px;
+                    font-size: 20px;
+                    font-weight: 700;
+                    padding: 10px 20px 10px 20px;
+                    margin-bottom: 10px;
+                }
+
+                .deleteOffers {
+                    color: white;
+                    background-color: red;
+                    border: none;
+                    border-radius: 25px;
+                    font-size: 20px;
+                    font-weight: 700;
+                    padding: 10px 20px 10px 20px;
+                    margin-bottom: 10px;
+                }
+            }
         }
     }
 }

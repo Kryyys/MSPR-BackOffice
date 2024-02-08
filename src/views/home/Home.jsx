@@ -1,6 +1,7 @@
 // import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
+// import { Link } from 'react-router-dom';
 import "./home.scss"
 
 const Home = () => {
