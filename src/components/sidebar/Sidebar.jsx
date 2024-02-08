@@ -1,3 +1,5 @@
+//  COMPOSANTS DE LA SIDEBAR
+
 // import React from "react";
 import "./sidebar.scss"
 import HomeIcon from '@mui/icons-material/Home';
@@ -17,10 +19,13 @@ const Sidebar = () => {
             <hr />
             <div className="center">
                 <ul>
+                    {/* ACCUEIL */}
                     <li>
                         <HomeIcon className="icon" />
                         <span><Link to="http://localhost:3000/" className="linkStyle">Accueil</Link></span>
                     </li>
+
+                    {/* UTILISATEURS */}
                     <p className="title">UTILISATEURS</p>
                     <li>
                         
@@ -31,12 +36,16 @@ const Sidebar = () => {
                         <AnnouncementIcon className="icon" />
                         <span><Link to="http://localhost:3000/offers" className="linkStyle">Annonces</Link></span>
                     </li>
+
+                    {/* BOTANISTES */}
                     <p className="title">BOTANISTES</p>
                     <li>
                         
                         <PersonIcon className="icon" />
                         <span>Demandes</span>
                     </li>
+
+                    {/* PERSONNEL */}
                     <p className="title">PERSONNEL</p>
                     <li>
                         <AccountCircleIcon className="icon" />

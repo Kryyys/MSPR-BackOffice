@@ -1,3 +1,5 @@
+// VIEW DE LA LISTE DE TOUS LES UTILISATEURS
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./list.scss"
@@ -23,6 +25,7 @@ const List = () => {
         });
     }, []);
 
+    // CONSTANTE POUR LA SUPPRESSION D'UTILISATEUR
     const handleDeleteUser = async (id) => {
         try {
           // Effectuer une requête DELETE pour supprimer un utilisateur
@@ -43,6 +46,7 @@ const List = () => {
         }
       };
 
+      // VIEW
     return (
         <div className="list">
             <Sidebar />

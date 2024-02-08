@@ -1,3 +1,5 @@
+// COMPOSANT DE LA NAVBAR
+
 // import React from "react";
 import "./navbar.scss"
 import SearchIcon from '@mui/icons-material/Search';
