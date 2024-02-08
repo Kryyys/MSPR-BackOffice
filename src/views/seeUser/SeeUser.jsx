@@ -25,7 +25,7 @@ const SeeUser = () => {
 
                 // Mettre à jour l'état avec les informations de l'utilisateur récupérées
                 setUserData(data);
-                console.log('userData 1 :', userData);
+                // console.log('userData 1 :', userData);
             } catch (error) {
                 // Gérer les erreurs lors de la récupération des informations de l'utilisateur
                 console.error('Erreur lors de la récupération des informations de l\'utilisateur :', error);
@@ -40,8 +40,8 @@ const SeeUser = () => {
         return <p>Chargement en cours...</p>;
     }
 
-    console.log('userData 2 :', userData);
-    console.log('userData 2.1', userData[0]);
+    // console.log('userData 2 :', userData);
+    // console.log('userData 2.1', userData[0]);
 
 
     // Afficher les informations de l'utilisateur une fois qu'elles sont disponibles

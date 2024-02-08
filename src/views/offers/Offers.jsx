@@ -5,7 +5,7 @@ import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
 import Plant from '../../assets/plant.jpeg';
 
-const List = () => {
+const Offers = () => {
 
     const [advertisements, setAdvertisements] = useState([]);
 
@@ -41,7 +41,9 @@ const List = () => {
                                 <p><strong>Description:</strong> {ad.description}</p>
 
                                 <div className="offersButton">
+                                <Link to={`/informationsOffer/${ad.idAdvertisement}`}>
                                     <button className="seeOffers">Voir l'annonce</button>
+                                </Link>
                                     <button className="deleteOffers">Supprimer l'annonce</button>
                                 </div>
                             </div>
@@ -54,4 +56,4 @@ const List = () => {
     )
 }
 
-export default List
+export default Offers
