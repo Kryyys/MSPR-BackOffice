@@ -5,10 +5,11 @@ import "./seeUser.scss"
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import profil from "../../assets/profil.png";
+import { Link } from 'react-router-dom';
 
 const SeeUser = () => {
-    // Récupérer l'id de l'utilisateur depuis les paramètres de l'URL
     const { idUser } = useParams();
+    const [redirectToUsers, setRedirectToUsers] = useState(false);
 
     // Déclarer une variable d'état pour stocker les informations de l'utilisateur
     const [userData, setUserData] = useState(null);
@@ -42,6 +43,24 @@ const SeeUser = () => {
 
     // console.log('userData 2 :', userData);
     // console.log('userData 2.1', userData[0]);
+    const handleDeleteUser = async (id) => {
+        try {
+            // Effectuer une requête DELETE pour supprimer un utilisateur
+            const response = await fetch(`http://localhost:1212/backoffice/remove/${id}`, {
+                method: 'DELETE',
+            });
+    
+            // Vérifier si la suppression a réussi (statut 200 OK)
+            if (response.ok) {
+                // Rediriger l'utilisateur vers la page /users après la suppression
+                window.location.href = '/users';
+            } else {
+                console.error('Erreur lors de la suppression de l\'utilisateur');
+            }
+        } catch (error) {
+            console.error('Erreur lors de la suppression de l\'utilisateur :', error);
+        }
+    };
 
 
     // Afficher les informations de l'utilisateur une fois qu'elles sont disponibles
@@ -92,6 +111,13 @@ const SeeUser = () => {
                         </tr>
                     </tbody>
                 </table>
+
+                <div className="usersButton">
+                                <Link to={`/users`}>
+                                    <button className="seeUsers">Retour aux utilisateurs</button>
+                                </Link>
+                                    <button className="deleteUser" onClick={() => handleDeleteUser(idUser)}>Supprimer l'utilisateur</button>
+                                </div>
                 
             </div>
         </div>

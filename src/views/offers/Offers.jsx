@@ -6,7 +6,6 @@ import Navbar from "../../components/navbar/Navbar"
 import Plant from '../../assets/plant.jpeg';
 
 const Offers = () => {
-
     const [advertisements, setAdvertisements] = useState([]);
 
     useEffect(() => {
@@ -20,7 +19,23 @@ const Offers = () => {
             });
     }, []);
 
+    const handleDeleteAdvertisement = async (idAdvertisement) => {
+        try {
+            const response = await fetch(`http://localhost:1212/backoffice/remove/${idAdvertisement}`, {
+                method: 'DELETE',
+            });
 
+            if (response.ok) {
+                // Mettre à jour la liste des annonces après la suppression
+                const updatedAdvertisements = advertisements.filter(ad => ad.idAdvertisement !== idAdvertisement);
+                setAdvertisements(updatedAdvertisements);
+            } else {
+                console.error('Erreur lors de la suppression de l\'annonce');
+            }
+        } catch (error) {
+            console.error('Erreur lors de la suppression de l\'annonce :', error);
+        }
+    };
 
     return (
         <div className="offers">
@@ -28,7 +43,6 @@ const Offers = () => {
             <div className="offersContainer">
                 <Navbar />
                 <h1>Liste des Annonces</h1>
-
                 <div className="advertisement-container">
                     {advertisements.map((ad, index) => (
                         <div key={ad.idAdvertisement} className="advertisement-bubble">
@@ -39,21 +53,19 @@ const Offers = () => {
                                 <p><strong>Date de début:</strong> {ad.start_date}</p>
                                 <p><strong>Date de fin:</strong> {ad.end_date}</p>
                                 <p><strong>Description:</strong> {ad.description}</p>
-
                                 <div className="offersButton">
-                                <Link to={`/informationsOffer/${ad.idAdvertisement}`}>
-                                    <button className="seeOffers">Voir l'annonce</button>
-                                </Link>
-                                    <button className="deleteOffers">Supprimer l'annonce</button>
+                                    <Link to={`/informationsOffer/${ad.idAdvertisement}`}>
+                                        <button className="seeOffers">Voir l'annonce</button>
+                                    </Link>
+                                    <button className="deleteOffers" onClick={() => handleDeleteAdvertisement(ad.idAdvertisement)}>Supprimer l'annonce</button>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-
             </div>
         </div>
     )
 }
 
-export default Offers
+export default Offers;

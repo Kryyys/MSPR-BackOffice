@@ -25,14 +25,16 @@ const SeeOffer = () => {
 
                 // Mettre à jour l'état avec les informations de l'utilisateur récupérées
                 setAdData(data);
+                console.log(adData);
+
                 // console.log('Data from API:', data);
-                // console.log('AdData 1 :', adData);
+                console.log('AdData 1 :', adData);
             } catch (error) {
                 // Gérer les erreurs lors de la récupération des informations de l'utilisateur
                 console.error('Erreur lors de la récupération des informations de l\'utilisateur :', error);
             }
 
-            
+
         };
 
         // Appeler la fonction asynchrone
@@ -43,17 +45,61 @@ const SeeOffer = () => {
         return <p>Chargement en cours...</p>;
     }
 
-
+    console.log(adData);
     return (
 
-        <div className="offers">
+        <div className="seeOffer">
             <Sidebar />
-            <div className="offersContainer">
+            <div className="seeOfferContainer">
                 <Navbar />
                 <h1>Annonce {adData[0].title}</h1>
-                
+
+                <div className="flexOffer">
+                    <div className="offerImage">
+                        <span className="adPicture"><img src={Plant} alt="Photos de l'annonce" /></span>
+                    </div>
+                    <div className="offerInfo">
+                        <table className="offerTable">
+                            <tbody>
+                                <tr>
+                                    <td className="bold">Ville</td>
+                                    <td>{adData[0].city}</td>
+                                </tr>
+                                <tr>
+                                    <td className="bold">Utilisateur</td>
+                                    <td>{adData[0].lastName} {adData[0].firstName}</td>
+                                </tr>
+                                <tr>
+                                    <td className="bold">Date de création</td>
+                                    <td>{adData[0].created_at}</td>
+                                </tr>
+                                <tr>
+                                    <td className="bold">Date de début</td>
+                                    <td>{adData[0].start_date}</td>
+                                </tr>
+                                <tr>
+                                    <td className="bold">Date de fin</td>
+                                    <td>{adData[0].end_date}</td>
+                                </tr>
+                                <tr>
+                                    <td className="bold">Description</td>
+                                    <td>{adData[0].description}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div className="offersButton">
+                                <Link to={`/offers`}>
+                                    <button className="seeOffers">Retour aux annonces</button>
+                                </Link>
+                                    <button className="deleteOffers">Supprimer l'annonce</button>
+                                </div>
+                    </div>
+                </div>
+
             </div>
+
         </div>
+
     )
 }
 
