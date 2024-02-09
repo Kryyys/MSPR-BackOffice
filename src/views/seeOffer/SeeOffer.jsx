@@ -45,6 +45,25 @@ const SeeOffer = () => {
         return <p>Chargement en cours...</p>;
     }
 
+    // const handleDeleteUser = async (id) => {
+    //     try {
+    //         // Effectuer une requête DELETE pour supprimer un utilisateur
+    //         const response = await fetch(`http://localhost:1212/backoffice/remove/${id}`, {
+    //             method: 'DELETE',
+    //         });
+    
+    //         // Vérifier si la suppression a réussi (statut 200 OK)
+    //         if (response.ok) {
+    //             // Rediriger l'utilisateur vers la page /users après la suppression
+    //             window.location.href = '/users';
+    //         } else {
+    //             console.error('Erreur lors de la suppression de l\'utilisateur');
+    //         }
+    //     } catch (error) {
+    //         console.error('Erreur lors de la suppression de l\'utilisateur :', error);
+    //     }
+    // };
+
     console.log(adData);
     return (
 
@@ -52,7 +71,7 @@ const SeeOffer = () => {
             <Sidebar />
             <div className="seeOfferContainer">
                 <Navbar />
-                <h1>Annonce {adData[0].title}</h1>
+                <h1>Annonce {adData.title}</h1>
 
                 <div className="flexOffer">
                     <div className="offerImage">
@@ -63,27 +82,27 @@ const SeeOffer = () => {
                             <tbody>
                                 <tr>
                                     <td className="bold">Ville</td>
-                                    <td>{adData[0].city}</td>
+                                    <td>{adData.city}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Utilisateur</td>
-                                    <td>{adData[0].lastName} {adData[0].firstName}</td>
+                                    <td>{adData.lastName} {adData.firstName}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Date de création</td>
-                                    <td>{adData[0].created_at}</td>
+                                    <td>{adData.created_at}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Date de début</td>
-                                    <td>{adData[0].start_date}</td>
+                                    <td>{adData.start_date}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Date de fin</td>
-                                    <td>{adData[0].end_date}</td>
+                                    <td>{adData.end_date}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Description</td>
-                                    <td>{adData[0].description}</td>
+                                    <td>{adData.description}</td>
                                 </tr>
                             </tbody>
                         </table>
