@@ -9,6 +9,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
 
+    // CONSTANTE POUR LA SOUMISSION DU FORMULAIRE
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -21,12 +22,16 @@ function Login() {
         }
     };
 
+    // PAGE
     return (
         <div className="login-page">
+            {/* LOGO */}
             <div>
                 <img src={Logo} alt="Logo" className="logo" />
             </div>
             <h1>Panneau d'administration</h1>
+
+            {/* FORMULAIRE */}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
