@@ -25,10 +25,10 @@ const SeeOffer = () => {
 
                 // Mettre à jour l'état avec les informations de l'utilisateur récupérées
                 setAdData(data);
-                console.log(adData);
+                // console.log(adData);
 
                 // console.log('Data from API:', data);
-                console.log('AdData 1 :', adData);
+                // console.log('AdData 1 :', adData);
             } catch (error) {
                 // Gérer les erreurs lors de la récupération des informations de l'utilisateur
                 console.error('Erreur lors de la récupération des informations de l\'utilisateur :', error);
