@@ -25,6 +25,7 @@ function App() {
               <Route path="informations/:idUser" element={<SeeUser />} />
               <Route path="modify/:idUser" element={<ModifyUser />} />
             </Route>
+            <Route path="informationsOffer/:idAdvertisement" element={<SeeOffer/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
