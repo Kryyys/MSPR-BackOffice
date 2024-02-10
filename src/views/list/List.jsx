@@ -75,14 +75,12 @@ const List = () => {
                 <td>{user.usersName}</td>
                 <td>{user.email}</td>
                 <td>{user.idRole}</td>
-                <td>
-                    <Link to={`informations/${user.idUser}`}>
-                        <span><VisibilityIcon/></span>
+                <td className="actionButton">
+                    <Link to={`/informations/${user.idUser}`}>
+                        <span className="UserButton"><VisibilityIcon/></span>
                     </Link>
-                    <Link to={`modify/${user.idUser}`}>
-                      <span><ModeEditIcon/></span>
-                    </Link>
-                    <span><DeleteIcon onClick={() => handleDeleteUser(user.idUser)}/></span>
+                    <span><ModeEditIcon/></span>
+                    <span className="deleteUserButton"><DeleteIcon onClick={() => handleDeleteUser(user.idUser)}/></span>
                 </td>
               </tr>
             ))}
