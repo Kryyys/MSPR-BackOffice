@@ -4,10 +4,12 @@ import Navbar from "../../components/navbar/Navbar"
 import "./seeUser.scss"
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import profil from "../../assets/profil.png";
+import { Link } from 'react-router-dom';
 
 const SeeUser = () => {
-    // Récupérer l'id de l'utilisateur depuis les paramètres de l'URL
     const { idUser } = useParams();
+    // const [redirectToUsers, setRedirectToUsers] = useState(false);
 
     // Déclarer une variable d'état pour stocker les informations de l'utilisateur
     const [userData, setUserData] = useState(null);
@@ -24,7 +26,7 @@ const SeeUser = () => {
 
                 // Mettre à jour l'état avec les informations de l'utilisateur récupérées
                 setUserData(data);
-                console.log('userData 1 :', userData);
+                // console.log('userData 1 :', userData);
             } catch (error) {
                 // Gérer les erreurs lors de la récupération des informations de l'utilisateur
                 console.error('Erreur lors de la récupération des informations de l\'utilisateur :', error);
@@ -39,8 +41,26 @@ const SeeUser = () => {
         return <p>Chargement en cours...</p>;
     }
 
-    console.log('userData 2 :', userData);
-    console.log('userData 2.1', userData[0]);
+    // console.log('userData 2 :', userData);
+    // console.log('userData 2.1', userData[0]);
+    const handleDeleteUser = async (id) => {
+        try {
+            // Effectuer une requête DELETE pour supprimer un utilisateur
+            const response = await fetch(`http://localhost:1212/backoffice/remove/${id}`, {
+                method: 'DELETE',
+            });
+
+            // Vérifier si la suppression a réussi (statut 200 OK)
+            if (response.ok) {
+                // Rediriger l'utilisateur vers la page /users après la suppression
+                window.location.href = '/users';
+            } else {
+                console.error('Erreur lors de la suppression de l\'utilisateur');
+            }
+        } catch (error) {
+            console.error('Erreur lors de la suppression de l\'utilisateur :', error);
+        }
+    };
 
 
     // Afficher les informations de l'utilisateur une fois qu'elles sont disponibles
@@ -51,15 +71,54 @@ const SeeUser = () => {
             <div className="seeUserContainer">
                 <Navbar />
 
-                <h1>Informations de l'utilisateur {idUser}</h1>
+                <h1>Informations de l'utilisateur {userData[0].lastName} {userData[0].firstName}</h1>
 
-                    <>
-                        <p>Nom: {userData[0].lastName}</p>
-                        <p>Prénom: {userData[0].firstName}</p>
-                        <p>Pseudo: {userData[0].usersName}</p>
-                        <p>Email: {userData[0].email}</p>
-                    </>
-                
+                <span className="avatarUser"><img src={profil} alt="Avatar de l'utilisateur" /></span>
+
+                <table className="userTable">
+                    <tbody>
+                        <tr>
+                            <td className="bold">Nom</td>
+                            <td>{userData[0].lastName}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Prénom</td>
+                            <td>{userData[0].firstName}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Pseudo</td>
+                            <td>{userData[0].usersName}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Email</td>
+                            <td>{userData[0].email}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Rôle</td>
+                            <td>{userData[0].name}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Ville</td>
+                            <td>{userData[0].city}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Création du compte</td>
+                            <td>{userData[0].created_at}</td>
+                        </tr>
+                        <tr>
+                            <td className="bold">Bio</td>
+                            <td>{userData[0].bio}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div className="usersButton">
+                    <Link to={`/users`}>
+                        <button className="seeUsers">Retour aux utilisateurs</button>
+                    </Link>
+                    <button className="deleteUser" onClick={() => handleDeleteUser(idUser)}>Supprimer l'utilisateur</button>
+                </div>
+
             </div>
         </div>
     );

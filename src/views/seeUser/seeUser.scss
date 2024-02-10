@@ -8,6 +8,87 @@
             text-align: center;
             color: rgb(6, 77, 6);
         }
+
+        .avatarUser {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+
+            img {
+                width: 150px;
+                border-radius: 50%;
+            }
+        }
+
+        .userTable {
+            margin-top: 40px;
+        }
+
+        table {
+            width: 40%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            
+            .bold {
+                font-weight: 700;
+            }
+
+            th,
+            td {
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #0b590b;
+                color: white;
+            }
+
+            tr {
+                border-bottom: solid 1px rgb(209, 209, 209);
+            }
+        }
+
+        .usersButton {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 15px;
+
+            .seeUsers {
+                color: white;
+                background-color: green;
+                border: none;
+                border-radius: 25px;
+                font-size: 20px;
+                font-weight: 700;
+                padding: 10px 20px 10px 20px;
+                margin: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .seeUsers:hover {
+                background-color: rgb(5, 189, 5);
+            }
+
+            .deleteUser {
+                color: white;
+                background-color: red;
+                border: none;
+                border-radius: 25px;
+                font-size: 20px;
+                font-weight: 700;
+                padding: 10px 20px 10px 20px;
+                margin: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .deleteUser:hover {
+                background-color: rgb(159, 3, 3);
+            }
+        }
     }
 }
 

@@ -1,0 +1,98 @@
+.seeOffer {
+    display: flex;
+
+    .seeOfferContainer {
+        flex: 6;
+        width: 100%;
+
+        h1 {
+            text-align: center;
+            color: rgb(6, 77, 6);
+        }
+
+        .flexOffer {
+            display: flex;
+            flex-direction: row;
+            margin-top: 55px;
+
+            .offerImage {
+                width: 30%;
+                margin-left: 15px;
+
+                .adPicture {
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+
+                    img {
+                        width:90%;
+                    }
+                }
+            }
+
+            .offerInfo {
+                width: 70%;
+
+                .offerTable {
+                    margin-top: 20px;
+                }
+
+                table {
+                    width: 40%;
+                    margin: 0 auto;
+                    border-collapse: collapse;
+
+                    .bold {
+                        font-weight: 700;
+                    }
+
+                    th,
+                    td {
+                        padding: 8px;
+                        text-align: left;
+                    }
+
+                    th {
+                        background-color: #0b590b;
+                        color: white;
+                    }
+
+                    tr {
+                        border-bottom: solid 1px rgb(209, 209, 209);
+                    }
+                }
+            }
+        }
+
+        .offersButton {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 15px;
+
+            .seeOffers {
+                color: white;
+                background-color: green;
+                border: none;
+                border-radius: 25px;
+                font-size: 20px;
+                font-weight: 700;
+                padding: 10px 20px 10px 20px;
+                margin: 10px;
+                cursor: pointer;
+            }
+
+            .deleteOffers {
+                color: white;
+                background-color: red;
+                border: none;
+                border-radius: 25px;
+                font-size: 20px;
+                font-weight: 700;
+                padding: 10px 20px 10px 20px;
+                margin: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}

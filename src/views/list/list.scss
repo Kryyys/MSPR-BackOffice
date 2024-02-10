@@ -1,4 +1,4 @@
-.list{
+.list {
     display: flex;
 
     .listContainer {
@@ -7,7 +7,64 @@
         h1 {
             text-align: center;
             color: rgb(6, 77, 6);
+            margin-bottom: 50px;
+        }
+
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: solid 1px #0b590b;
+
+            th,
+            td {
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #0b590b;
+                color: white;
+            }
+
+            tr:nth-child(even) {
+                background-color: #e2f6d8;
+            }
+
+            tr:hover {
+                background-color: #ddd;
+            }
+
+            td img {
+                width: 50px;
+                border-radius: 50%;
+            }
+
+            .actionButton {
+                display: flex;
+                justify-content: space-around;
+                cursor: pointer;
+                font-size: 40px;
+
+                .UserButton {
+                    color: rgb(6, 52, 26);
+                    cursor: pointer;
+                }
+
+                .deleteUserButton {
+                    color: red;
+                    cursor: pointer;
+                }
+            }
+
+            .lastNameImg {
+                display: flex;
+                align-items: center;
+                
+                img {
+                    margin-right: 20px;
+                }
+            }
         }
     }
 }
-

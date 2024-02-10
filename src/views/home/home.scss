@@ -8,6 +8,29 @@
             text-align: center;
             color: rgb(6, 77, 6);
         }
+
+        .main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .section {
+                background-color: #0b590b;
+                color: #fff;
+                border-radius: 25px;
+                padding: 20px;
+                font-size: 18px;
+                font-weight: 700;
+                margin: 20px 20px;
+
+                .linkStyle {
+                    font-style: 13px;
+                    font-weight: 600;
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
     }
 }
 
