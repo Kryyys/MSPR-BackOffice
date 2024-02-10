@@ -76,7 +76,7 @@ const List = () => {
                 <td>{user.email}</td>
                 <td>{user.idRole}</td>
                 <td className="actionButton">
-                    <Link to={`/informations/${user.idUser}`}>
+                    <Link to={`users/informations/${user.idUser}`}>
                         <span className="UserButton"><VisibilityIcon/></span>
                     </Link>
                     <span><ModeEditIcon/></span>
