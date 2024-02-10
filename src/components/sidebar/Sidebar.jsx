@@ -14,7 +14,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="top">
-                <span className="logo">Admin Arrosa'Je</span>
+                <span className="logo"><Link to="http://localhost:3000/" className="linkStyle">Admin Arrosa'Je</Link></span>
             </div>
             <hr />
             <div className="center">
