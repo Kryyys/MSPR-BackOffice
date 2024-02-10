@@ -71,7 +71,7 @@ const SeeOffer = () => {
             <Sidebar />
             <div className="seeOfferContainer">
                 <Navbar />
-                <h1>Annonce {adData.title}</h1>
+                <h1>Annonce {adData[0].title}</h1>
 
                 <div className="flexOffer">
                     <div className="offerImage">
@@ -82,27 +82,27 @@ const SeeOffer = () => {
                             <tbody>
                                 <tr>
                                     <td className="bold">Ville</td>
-                                    <td>{adData.city}</td>
+                                    <td>{adData[0].city}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Utilisateur</td>
-                                    <td>{adData.lastName} {adData.firstName}</td>
+                                    <td>{adData[0].lastName} {adData.firstName}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Date de création</td>
-                                    <td>{adData.created_at}</td>
+                                    <td>{adData[0].created_at}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Date de début</td>
-                                    <td>{adData.start_date}</td>
+                                    <td>{adData[0].start_date}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Date de fin</td>
-                                    <td>{adData.end_date}</td>
+                                    <td>{adData[0].end_date}</td>
                                 </tr>
                                 <tr>
                                     <td className="bold">Description</td>
-                                    <td>{adData.description}</td>
+                                    <td>{adData[0].description}</td>
                                 </tr>
                             </tbody>
                         </table>
