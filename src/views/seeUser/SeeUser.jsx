@@ -49,7 +49,7 @@ const SeeUser = () => {
             const response = await fetch(`http://localhost:1212/backoffice/remove/${id}`, {
                 method: 'DELETE',
             });
-    
+
             // Vérifier si la suppression a réussi (statut 200 OK)
             if (response.ok) {
                 // Rediriger l'utilisateur vers la page /users après la suppression
@@ -74,7 +74,7 @@ const SeeUser = () => {
                 <h1>Informations de l'utilisateur {userData[0].lastName} {userData[0].firstName}</h1>
 
                 <span className="avatarUser"><img src={profil} alt="Avatar de l'utilisateur" /></span>
-                    
+
                 <table className="userTable">
                     <tbody>
                         <tr>
@@ -113,12 +113,12 @@ const SeeUser = () => {
                 </table>
 
                 <div className="usersButton">
-                                <Link to={`/users`}>
-                                    <button className="seeUsers">Retour aux utilisateurs</button>
-                                </Link>
-                                    <button className="deleteUser" onClick={() => handleDeleteUser(idUser)}>Supprimer l'utilisateur</button>
-                                </div>
-                
+                    <Link to={`/users`}>
+                        <button className="seeUsers">Retour aux utilisateurs</button>
+                    </Link>
+                    <button className="deleteUser" onClick={() => handleDeleteUser(idUser)}>Supprimer l'utilisateur</button>
+                </div>
+
             </div>
         </div>
     );

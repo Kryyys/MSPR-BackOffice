@@ -65,6 +65,11 @@
                 padding: 10px 20px 10px 20px;
                 margin: 10px;
                 cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .seeUsers:hover {
+                background-color: rgb(5, 189, 5);
             }
 
             .deleteUser {
@@ -77,6 +82,11 @@
                 padding: 10px 20px 10px 20px;
                 margin: 10px;
                 cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .deleteUser:hover {
+                background-color: rgb(159, 3, 3);
             }
         }
     }

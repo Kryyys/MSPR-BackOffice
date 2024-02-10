@@ -3,15 +3,16 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import { useParams } from "react-router-dom";
 import "./modifyUser.scss";
+import { Link } from 'react-router-dom';
 
 const ModifyUser = () => {
     const [user, setUser] = useState({
-        firstName: "",
-        lastName: "",
-        usersName: "",
-        email: "",
-        city: "",
-        idRole: 1 
+        // firstName: "",
+        // lastName: "",
+        // usersName: "",
+        // email: "",
+        // city: "",
+        idRole: 1
     });
 
     const { idUser } = useParams();
@@ -20,10 +21,10 @@ const ModifyUser = () => {
         fetch(`http://localhost:1212/backoffice/edit/${idUser}`)
             .then(response => response.json())
             .then(data => {
-                setUser(data); 
+                setUser(data);
             })
             .catch(error => console.error("Error fetching user data:", error));
-    }, [idUser]); 
+    }, [idUser]);
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -37,33 +38,33 @@ const ModifyUser = () => {
         e.preventDefault();
         try {
             const response = await fetch(`http://localhost:1212/backoffice/edit/${idUser}`, {
-                method: 'PUT', 
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(user)
             });
-    
+
             if (!response.ok) {
                 throw new Error('Failed to update user');
             }
-    
+
             console.log('User updated successfully');
             window.location.href = '/users';
         } catch (error) {
             console.error('Error updating user:', error.message);
         }
     };
-    
+
 
     return (
         <div className="modify">
             <Sidebar />
             <div className="muContainer">
                 <Navbar />
-                <h1>Modifier les informations</h1>
+                <h1>Modifier le rôle de l'utilisateur</h1>
                 <form onSubmit={handleSubmit}>
-                    <label>
+                    {/* <label>
                         Prénom:
                         <input
                             type="text"
@@ -107,7 +108,7 @@ const ModifyUser = () => {
                             value={user.city}
                             onChange={handleChange}
                         />
-                    </label>
+                    </label>*/}
                     <label>
                         Rôle:
                         <select name="idRole" value={user.idRole} onChange={handleChange}>
@@ -119,7 +120,13 @@ const ModifyUser = () => {
                             ))}
                         </select>
                     </label>
-                    <button type="submit">Enregistrer</button>
+
+                    <div className="usersButton">
+                        <button type="submit" className="backList">Changer le rôle</button>
+                        <Link to={`/users`}>
+                            <button className="backList">Retour aux utilisateurs</button>
+                        </Link>
+                    </div>
                 </form>
             </div>
         </div>
