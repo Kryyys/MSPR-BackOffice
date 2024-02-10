@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const SeeUser = () => {
     const { idUser } = useParams();
-    const [redirectToUsers, setRedirectToUsers] = useState(false);
+    // const [redirectToUsers, setRedirectToUsers] = useState(false);
 
     // Déclarer une variable d'état pour stocker les informations de l'utilisateur
     const [userData, setUserData] = useState(null);
