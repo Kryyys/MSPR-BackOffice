@@ -1,0 +1,27 @@
+# .gitlab-ci.yml
+
+# Spécification de l'image Docker à utiliser comme environnement d'exécution
+image: docker:stable
+
+# Définition des étapes du pipeline
+stages:
+  - test
+  - build
+  - deploy
+
+# Définition des jobs pour chaque étape
+test:
+  stage: test
+  script:
+    - npm install  # Installer les dépendances
+    - npm test     # Exécuter les tests
+
+build:
+  stage: build
+  script:
+    - docker build -t mon_backoffice .  # Construction de l'image Docker
+
+deploy:
+  stage: deploy
+  script:
+    - docker-compose up -d  # Démarrer les conteneurs avec Docker Compose
